@@ -32,11 +32,11 @@ var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
 var formattedpic = HTMLbioPic.replace("%data%", bio.bioPic);
 var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
 $("#topContacts").append(formattedemail)
-				 .append(formattedgithub)
-				 .append(formattedblog)
-				 .append(formattedlocation);
+$("#topContacts").append(formattedgithub)
+$("#topContacts").append(formattedblog)
+$("#topContacts").append(formattedlocation);
 $("#header").append(formattedpic)
-            .append(formattedWelcomeMsg);
+$("#header").append(formattedWelcomeMsg);
 
 if(bio.skills.length > 0) {
 $("#header").append(HTMLskillsStart);
@@ -54,9 +54,9 @@ $("#skills").append(formattedSkills);
 }
 
 $("#footerContacts").append(formattedemail)
-					.append(formattedgithub)
-					.append(formattedblog)
-					.append(formattedlocation);
+$("#footerContacts").append(formattedgithub)
+$("#footerContacts").append(formattedblog)
+$("#footerContacts").append(formattedlocation);
 }
 displayContact();
 
@@ -151,7 +151,6 @@ var education = {
 function displayeducation() {
 for(school in education.schools) {
 $("#education").append(HTMLschoolStart);
-
 var formattedEducation = HTMLschoolName.replace("%data%", education.schools[school].name);
 var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 $(".education-entry").append(formattedEducation + formattedDegree);
@@ -167,15 +166,15 @@ displayeducation();
 
 $("#onlineEducation").append(HTMLonlineClasses);
 function displayonlineeducation() {
-for(online in education.onlineCourses) {
+for(eduonline in education.onlineCourses) {
 $("#onlineEducation").append(HTMLonlineSchoolStart);
 
-var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[online].title);
-var formattedDegree = HTMLschoolDegree.replace("%data%", education.onlineCourses[online].school);
+var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[eduonline].title);
+var formattedDegree = HTMLschoolDegree.replace("%data%", education.onlineCourses[eduonline].school);
 $(".online-entry").append(formattedTitle + formattedDegree);
-var formattedDatesol = HTMLonlineDates.replace("%data%", education.onlineCourses[online].dates);
+var formattedDatesol = HTMLonlineDates.replace("%data%", education.onlineCourses[eduonline].dates);
 $(".online-entry").append(formattedDatesol);
-var formattedurlol = HTMLonlineURL.replace("%data%", education.onlineCourses[online].url);
+var formattedurlol = HTMLonlineURL.replace("%data%", education.onlineCourses[eduonline].url);
 $(".online-entry").append(formattedurlol);
 
 }}
@@ -189,16 +188,14 @@ $("#mapDiv").append(googleMap);
 
 
 function inName() { 
-	var name = window.name;
 	name = name.trim().split(" ");
 	console.log(name);
 	name[1] = name[1].toUpperCase();
-	name[0] = name[0].slice(0,1).toUpperCase() + 
-	  name[0].slice(1).toLowerCase();
+	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
 
 	  return name[0] +" "+ name[1];
 	}
 
-	var name = $("#name").text();
+	
 
 $("#main").append(internationalizeButton);
